@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "20976097566",
+    "firebase_url": "https://blog-ddc0c.firebaseio.com",
+    "project_id": "blog-ddc0c",
+    "storage_bucket": "blog-ddc0c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20976097566:android:15612fdc82d084dd",
+        "android_client_info": {
+          "package_name": "mina.egypt.android.blog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "20976097566-1i2trr6v3mfu2jpf79jtlikkr1m24ufq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mina.egypt.android.blog",
+            "certificate_hash": "AC6A75685CDAF4B53CFA6A2306E46F79F0501EAD"
+          }
+        },
+        {
+          "client_id": "20976097566-3jp1emjdkvojij1srge0ftptcn5svfk2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVqbbB0ROFuL1BWBKUSIHoGpFQDXnagvo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "20976097566-3jp1emjdkvojij1srge0ftptcn5svfk2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
