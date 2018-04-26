@@ -11,7 +11,7 @@
         android:id="@+id/imageSelect"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="#00ffffff"
+        android:background="@color/transparentWhiteColor"
         android:src="@mipmap/add_btn"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true" />
@@ -27,7 +27,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:padding="15dp"
-        android:hint="Post Title ..." />
+        android:hint="@string/post_title" />
 
     <EditText
         android:layout_width="match_parent"
@@ -42,16 +42,16 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:padding="15dp"
-        android:hint="Post Description ..." />
+        android:hint="@string/post_desc" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit Post"
+        android:text="@string/submit_post"
         android:id="@+id/submitBtn"
         android:background="@color/colorPrimary"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:textColor="#ffffff" />
+        android:textColor="@color/whiteColor" />
 
 </RelativeLayout>

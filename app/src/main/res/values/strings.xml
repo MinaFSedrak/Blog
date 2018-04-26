@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Blog</string>
+    //text view strings
+    <string name="welcome">Welcome</string>
+    <string name="post_username_goes_here">Post Username Goes Here ...</string>
+    <string name="post_title_goes_here">Post Title Goes Here ...</string>
+    <string name="post_desc_goes_here">Post Description Goes Here ...</string>
+    //edit text strings
+    <string name ="login">Login</string>
+    <string name="email">Email...</string>
+    <string name="password">Password...</string>
+    <string name="name">Name...</string>
+    <string name="post_title">Post Title ...</string>
+    <string name="post_desc">Post Description ...</string>
+    //button strings
+    <string name="need_a_new_account">Need a New Account ?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="submit_post">Submit Post</string>
+
 </resources>

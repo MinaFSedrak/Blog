@@ -62,7 +62,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String email = mloginEmail.getText().toString().trim();
         String password = mloginPassword.getText().toString().trim();
 
-
         if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)){
             mProgress.setMessage("Signing in...");
             mProgress.show();
@@ -75,7 +74,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     if(task.isSuccessful()){
 
                         checkUserExist();
-                        mProgress.dismiss();
+
 
                     }else {
                         Toast.makeText(LoginActivity.this, "Wrong Mail & Password.", Toast.LENGTH_LONG).show();
@@ -85,7 +84,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             });
 
 
-        }else{
+        }
+        else{
             Toast.makeText(this, "Empty Fields", Toast.LENGTH_LONG).show();
         }
     }
@@ -104,6 +104,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }else {
                     Toast.makeText(LoginActivity.this, "You need to setup your account", Toast.LENGTH_LONG).show();
                 }
+                mProgress.dismiss();
             }
 
             @Override

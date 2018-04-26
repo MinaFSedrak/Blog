@@ -15,12 +15,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/post_username"
-            android:text="Post Username Goes Here ..."
+            android:text="@string/post_username_goes_here"
             android:textSize="16dp"
             android:textIsSelectable="true"
             android:padding="2dp"
             android:textStyle="bold|italic"
-            android:textColor="#ee0e0e" />
+            android:textColor="@color/redColor" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/post_title"
-            android:text="Post Title Goes Here ..."
+            android:text="@string/post_title_goes_here"
             android:textSize="16dp"
             android:textIsSelectable="true"
             android:padding="15dp"
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/post_desc"
-            android:text="Post Description Goes Here ..."
+            android:text="@string/post_desc_goes_here"
             android:textStyle="italic"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"

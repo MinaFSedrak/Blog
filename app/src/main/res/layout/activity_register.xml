@@ -17,7 +17,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:hint="Name..."
+        android:hint="@string/name"
         android:padding="15dp" />
 
     <EditText
@@ -32,7 +32,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:hint="Email..."
+        android:hint="@string/email"
         android:padding="15dp" />
 
     <EditText
@@ -48,17 +48,17 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:hint="Password..."
+        android:hint="@string/password"
         android:padding="15dp" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
+        android:text="@string/sign_up"
         android:id="@+id/registerBtn"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/colorPrimary"
-        android:textColor="#ffffff"
+        android:textColor="@color/whiteColor"
         />
 </RelativeLayout>

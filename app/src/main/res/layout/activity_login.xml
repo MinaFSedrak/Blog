@@ -17,7 +17,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:layout_centerHorizontal="true"
-        android:hint="Email..."
+        android:hint="@string/email"
         android:padding="15dp" />
 
     <EditText
@@ -32,27 +32,27 @@
         android:layout_marginRight="20dp"
         android:layout_below="@+id/loginEmailField"
         android:layout_centerHorizontal="true"
-        android:hint="Password...."
+        android:hint="@string/password"
         android:padding="15dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/login"
         android:id="@+id/loginBtn"
         android:layout_below="@+id/loginPasswordField"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="79dp"
         android:background="@color/colorPrimary"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/whiteColor"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Need a New Account ?"
+        android:text="@string/need_a_new_account"
         android:id="@+id/newAccountBtn"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/colorPrimary"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/whiteColor"/>
 </RelativeLayout>
