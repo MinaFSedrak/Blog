@@ -72,6 +72,7 @@ public class PostActivity extends AppCompatActivity implements  View.OnClickList
 
         mProgress = new ProgressDialog(this);
 
+        // onImage select handler go to gallery
         mSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,12 +87,14 @@ public class PostActivity extends AppCompatActivity implements  View.OnClickList
         mSubmitBtn.setOnClickListener(this);
     }
 
+    // post new blog
     private void startPosting(){
 
         mProgress.setMessage("Posting to Blog ...");
         final String title_value = mPostTitle.getText().toString().trim();
         final String desc_value = mPostDesc.getText().toString().trim();
 
+        // validation required fields for posting a blog
         if(!TextUtils.isEmpty(title_value) && !TextUtils.isEmpty(desc_value) && mImageUri != null){
 
             mProgress.show();
@@ -100,13 +103,14 @@ public class PostActivity extends AppCompatActivity implements  View.OnClickList
             StorageReference filepath = mStorage.child("Blog_Images").child(mImageUri.getLastPathSegment());
             Toast.makeText(this, filepath.toString(), Toast.LENGTH_LONG).show();
 
+            // upload image to firebase storage
             filepath.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     final Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                    final DatabaseReference newPost = mDatabase.push();
+                    final DatabaseReference newPost = mDatabase.push(); // add record to database with unique name
 
-
+                    // add given post info to database with owner uid
                     mDatabaseUser.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -140,20 +144,26 @@ public class PostActivity extends AppCompatActivity implements  View.OnClickList
         }
     }
 
+    // onSelectedImage result handler
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        // gallery request
         if( requestCode == GALLERY_REQUEST && resultCode == RESULT_OK){
             mImageUri = data.getData();
+
+            // give selected image to CropImageActivity
             CropImage.activity(mImageUri)
                     .setGuidelines(CropImageView.Guidelines.ON)
                     .setAspectRatio(4,3)
                     .start(this);
         }
 
+        // crop image request
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
+
 
             if (resultCode == RESULT_OK) {
                 Uri resultUri = result.getUri();
@@ -170,6 +180,7 @@ public class PostActivity extends AppCompatActivity implements  View.OnClickList
         if(v.getId() == R.id.submitBtn){
             boolean error = false;
 
+            // validation
             if(mPostTitle.getText().toString().length() == 0){
                 mPostTitle.setError("Please enter a title");
                 error = true;}

@@ -50,6 +50,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
+    // register with username, email, password
     private void startRegister() {
 
         final String name = mNameField.getText().toString().trim();
@@ -58,15 +59,18 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)){
 
-                mProgress.setMessage("Signing Up...");
-                mProgress.show();
-                mProgress.setCancelable(false);
-                mProgress.setCanceledOnTouchOutside(false);
+            // set progress dialog
+            mProgress.setMessage("Signing Up...");
+            mProgress.show();
+            mProgress.setCancelable(false);
+            mProgress.setCanceledOnTouchOutside(false);
 
+            // firebase creating user using email and password
             mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(Task<AuthResult> task) {
 
+                        // add user unique id record to database
                         if(task.isSuccessful()){
 
                             String user_id = mAuth.getCurrentUser().getUid();
@@ -97,6 +101,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         if(v.getId() == R.id.registerBtn){
             boolean error = false;
 
+            // validation
             if(mNameField.getText().toString().length() == 0){
                 mNameField.setError("Please enter a name");
                 error = true;}

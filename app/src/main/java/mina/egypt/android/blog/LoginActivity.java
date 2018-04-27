@@ -42,31 +42,31 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mAuth = FirebaseAuth.getInstance();
         mProgress = new ProgressDialog(this);
 
+
         mloginEmail = (EditText) findViewById(R.id.loginEmailField);
         mloginPassword = (EditText) findViewById(R.id.loginPasswordField);
         mloginBtn = (Button) findViewById(R.id.loginBtn);
         mloginNewAccBtn = (Button) findViewById(R.id.newAccountBtn);
 
         mloginBtn.setOnClickListener(this);
-
-        mloginNewAccBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
-            }
-        });
+        mloginNewAccBtn.setOnClickListener(this);
 
     }
 
+    // login with email and password
     private void checkLogin() {
         String email = mloginEmail.getText().toString().trim();
         String password = mloginPassword.getText().toString().trim();
 
         if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)){
+
+            // set progress dialog
             mProgress.setMessage("Signing in...");
             mProgress.show();
             mProgress.setCancelable(false);
             mProgress.setCanceledOnTouchOutside(false);
+
+            //signing in
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(Task<AuthResult> task) {
@@ -90,9 +90,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    // check if user unique id exist at usersDatabase
     private void checkUserExist() {
 
         final String user_id = mAuth.getCurrentUser().getUid();
+
         mDatabaseUsers.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -115,11 +117,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
+
+    // onLogin, onNewAccount click handler
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.loginBtn){
             boolean error = false;
 
+            // validation
             if(mloginEmail.getText().toString().length() == 0){
                 mloginEmail.setError("A valid email is required");
                 error = true;}
@@ -132,6 +137,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 checkLogin();
             }
 
+        if(v.getId() == R.id.newAccountBtn){
+            startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+
+        }
 
         }
     }

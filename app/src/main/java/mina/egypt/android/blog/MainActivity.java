@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         setTitle("Home");
 
         mAuth = FirebaseAuth.getInstance();
+
+        // Firebase User authentication listener
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(FirebaseAuth firebaseAuth) {
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Blog");
 
+        // Set RecyclerView Props
         mBlogList = (RecyclerView) findViewById(R.id.blog_list);
         mBlogList.setHasFixedSize(true);
         mBlogList.setLayoutManager(new LinearLayoutManager(this));
@@ -62,15 +65,17 @@ public class MainActivity extends AppCompatActivity {
         if(isOnline()) {
 
             mAuth.addAuthStateListener(mAuthListener);
-            FirebaseRecyclerAdapter<Blog, BlogViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Blog, BlogViewHolder>(
 
-                    Blog.class,
+            // set firebase recyclerAdapter , params ( model, layoutRow, viewHolder, databaseReference)
+            FirebaseRecyclerAdapter<mina.egypt.android.blog.Blog, BlogViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<mina.egypt.android.blog.Blog, BlogViewHolder>(
+
+                    mina.egypt.android.blog.Blog.class,
                     R.layout.blog_row,
                     BlogViewHolder.class,
                     mDatabase
             ) {
                 @Override
-                protected void populateViewHolder(BlogViewHolder viewHolder, Blog model, int position) {
+                protected void populateViewHolder(BlogViewHolder viewHolder, mina.egypt.android.blog.Blog model, int position) {
 
                     viewHolder.setTitle(model.getTitle());
                     viewHolder.setDesc(model.getDesc());
@@ -79,12 +84,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
 
+            // add adapter to recyclerView
             mBlogList.setAdapter(firebaseRecyclerAdapter);
         }else{
             Toast.makeText(this,"Please Check your Internet Connection.",Toast.LENGTH_LONG).show();
         }
     }
 
+
+    // RecyclerView viewHolder
     public static class BlogViewHolder extends RecyclerView.ViewHolder{
 
         View mView;
@@ -116,6 +124,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    // check connection
     public boolean isOnline() {
         ConnectivityManager cm =
                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -123,6 +133,9 @@ public class MainActivity extends AppCompatActivity {
         return( netInfo != null && netInfo.isConnectedOrConnecting());
     }
 
+
+
+    // inflate option menu ( + add Post) , logout
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -130,6 +143,8 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+
+    // on item selected from Menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -148,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 
     private void logout() {
         mAuth.addAuthStateListener(mAuthListener);

@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
+    android:layout_margin="@dimen/margin_20"
     >
 
     <LinearLayout
@@ -16,9 +16,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/post_username"
             android:text="@string/post_username_goes_here"
-            android:textSize="16dp"
+            android:textSize="@dimen/text_size_16"
             android:textIsSelectable="true"
-            android:padding="2dp"
+            android:padding="@dimen/padding_2"
             android:textStyle="bold|italic"
             android:textColor="@color/redColor" />
 
@@ -35,9 +35,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/post_title"
             android:text="@string/post_title_goes_here"
-            android:textSize="16dp"
+            android:textSize="@dimen/text_size_16"
             android:textIsSelectable="true"
-            android:padding="15dp"
+            android:padding="@dimen/padding_15"
             android:textStyle="bold" />
 
         <TextView
@@ -46,9 +46,9 @@
             android:id="@+id/post_desc"
             android:text="@string/post_desc_goes_here"
             android:textStyle="italic"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:paddingBottom="15dp" />
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15"
+            android:paddingBottom="@dimen/padding_15" />
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

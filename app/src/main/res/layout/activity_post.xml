@@ -23,10 +23,10 @@
         android:background="@drawable/input_outline"
         android:layout_below="@+id/imageSelect"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:padding="15dp"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
+        android:padding="@dimen/padding_15"
         android:hint="@string/post_title" />
 
     <EditText
@@ -38,10 +38,10 @@
         android:background="@drawable/input_outline"
         android:layout_below="@+id/titleField"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:padding="15dp"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
+        android:padding="@dimen/padding_15"
         android:hint="@string/post_desc" />
 
     <Button

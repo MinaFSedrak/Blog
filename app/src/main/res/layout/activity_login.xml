@@ -13,12 +13,12 @@
         android:ems="10"
         android:id="@+id/loginEmailField"
         android:background="@drawable/input_outline"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
         android:layout_centerHorizontal="true"
         android:hint="@string/email"
-        android:padding="15dp" />
+        android:padding="@dimen/padding_15" />
 
     <EditText
         android:layout_width="match_parent"
@@ -27,13 +27,13 @@
         android:ems="10"
         android:id="@+id/loginPasswordField"
         android:background="@drawable/input_outline"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
         android:layout_below="@+id/loginEmailField"
         android:layout_centerHorizontal="true"
         android:hint="@string/password"
-        android:padding="15dp" />
+        android:padding="@dimen/padding_15" />
 
     <Button
         android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
         android:id="@+id/loginBtn"
         android:layout_below="@+id/loginPasswordField"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="79dp"
+        android:layout_marginTop="@dimen/margin_top_79"
         android:background="@color/colorPrimary"
         android:textColor="@color/whiteColor"/>
 
