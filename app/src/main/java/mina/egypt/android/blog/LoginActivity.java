@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        setTitle("Login");
+        setTitle(R.string.loginScreen);
 
         mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users");
         mAuth = FirebaseAuth.getInstance();
@@ -49,7 +49,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mloginNewAccBtn = (Button) findViewById(R.id.newAccountBtn);
 
         mloginBtn.setOnClickListener(this);
-        mloginNewAccBtn.setOnClickListener(this);
+        mloginNewAccBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+            }
+        });
 
     }
 
@@ -101,7 +106,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if(dataSnapshot.hasChild(user_id)){
 
                     Intent mainIntent = new Intent(LoginActivity.this,MainActivity.class);
-                    mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(mainIntent);
                 }else {
                     Toast.makeText(LoginActivity.this, "You need to setup your account", Toast.LENGTH_LONG).show();
@@ -136,11 +140,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             if(error == false){
                 checkLogin();
             }
-
-        if(v.getId() == R.id.newAccountBtn){
-            startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
-
-        }
 
         }
     }

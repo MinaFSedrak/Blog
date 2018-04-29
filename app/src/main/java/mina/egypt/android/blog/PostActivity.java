@@ -52,7 +52,7 @@ public class PostActivity extends AppCompatActivity implements  View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
-        setTitle("Post");
+        setTitle(R.string.postScreen);
 
         mStorage = FirebaseStorage.getInstance().getReference();
 

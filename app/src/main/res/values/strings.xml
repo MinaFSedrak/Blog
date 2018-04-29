@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Blog</string>
+    // screens
+    <string name="loginScreen">Login</string>
+    <string name="mainScreen">Home</string>
+    <string name="postScreen">Post</string>
+    <string name="registerScreen">Register</string>
     //text view strings
     <string name="welcome">Welcome</string>
     <string name="post_username_goes_here">Post Username Goes Here ...</string>
